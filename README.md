@@ -131,3 +131,4 @@ Set of components that implements general purpose utility class for different sc
 - DateTime
 - File
 - String
+- Path
