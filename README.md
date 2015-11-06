@@ -2,7 +2,7 @@ Vegas CMF Common
 ================
 
 
-# `Vegas\Di\InjectionAwareTrait`
+`Vegas\Di\InjectionAwareTrait`
 
 Helper trait for \Phalcon\Di\InjectionAwareInterface
 
@@ -13,11 +13,12 @@ class Foo implements \Phalcon\Di\InjectionAwareInterface
 }
 ```
 
-# `Vegas\Http\Method`
+`Vegas\Http\Method`
 
 List of Http methods
 
-# `Vegas\Hydrator`
+`Vegas\Hydrator`
+
 Simple component to provide mechanisms both for hydrating objects, as well as extracting data sets from them.
 
 - `Vegas\Hydrator\Method`
@@ -124,7 +125,8 @@ $foo = new Foo();
 echo $foo->get_camel_case(); // 'test'
 ```
 
-# `Vegas\Stdlib`
+`Vegas\Stdlib`
+
 Set of components that implements general purpose utility class for different scopes:
 
 - Array
