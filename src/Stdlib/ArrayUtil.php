@@ -1,8 +1,12 @@
 <?php
 /**
+ * This file is part of Vegas package
+ *
  * @author Slawomir Zytko <slawek@amsterdam-standard.pl>
- * @company Amsterdam Standard Sp. z o.o.
+ * @copyright Amsterdam Standard Sp. Z o.o.
+ * @homepage http://vegas-cmf.github.io
  */
+
 
 namespace Vegas\Stdlib;
 
@@ -18,12 +22,12 @@ class ArrayUtil
      */
     public static function flatten($array)
     {
-        $flattenArray = [];
+        $flattenedArray = [];
         $iterator = new \RecursiveIteratorIterator(new \RecursiveArrayIterator($array));
         foreach ($iterator as $item) {
-            $flattenArray[] = $item;
+            $flattenedArray[] = $item;
         }
 
-        return $flattenArray;
+        return $flattenedArray;
     }
 }

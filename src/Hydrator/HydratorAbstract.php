@@ -29,7 +29,7 @@ abstract class HydratorAbstract implements HydratorInterface
     }
 
     /**
-     * @var
+     * @var NamingStrategyInterface
      */
     protected $namingStrategy;
 

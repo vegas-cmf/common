@@ -6,6 +6,7 @@
  * @company Amsterdam Standard Sp. z o.o.
  * @homepage http://cmf.vegas
  */
+
 namespace Vegas;
 
 /**
