@@ -2,7 +2,7 @@ Vegas CMF Common
 ================
 
 
-# `Vegas\Di\InjectionAwareTrait`
+`Vegas\Di\InjectionAwareTrait`
 
 Helper trait for \Phalcon\Di\InjectionAwareInterface
 
