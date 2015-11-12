@@ -104,9 +104,8 @@ class FileUtil
      */
     private static function compareContents($filePath, $newContent)
     {
-        if (file_exists($filePath)) {
-            $currentContent = file_get_contents($filePath);
-            return strcmp($currentContent, $newContent) === 0;
+        if (file_exists($filePath) && is_readable($filePath)) {
+            return md5_file($filePath) === md5($newContent);
         }
 
         return false;
