@@ -11,7 +11,7 @@ namespace Vegas\Di;
 
 use Phalcon\Di\InjectionAwareInterface;
 use Vegas\Di\Injector\Exception\InvalidServiceException;
-use Vegas\Di\Injector\InjectableInterface;
+use Vegas\Di\Injector\SharedServiceProviderInterface;
 
 /**
  * Class Injector
@@ -38,20 +38,23 @@ class Injector implements InjectionAwareInterface
     {
         foreach ($services as $service) {
             $serviceInstance = $this->obtainService($service);
-            $serviceInstance->inject($this->getDI());
+            $this->getDI()->setShared(
+                $serviceInstance->getName(),
+                $serviceInstance->getProvider($this->getDI())
+            );
         }
     }
 
     /**
      * @param $serviceClassName
-     * @return InjectableInterface
+     * @return SharedServiceProviderInterface
      * @throws InvalidServiceException
      */
     protected function obtainService($serviceClassName)
     {
         $reflection = new \ReflectionClass($serviceClassName);
         $instance = $reflection->newInstance();
-        if (!$instance instanceof InjectableInterface) {
+        if (!$instance instanceof SharedServiceProviderInterface) {
             throw new InvalidServiceException();
         }
 

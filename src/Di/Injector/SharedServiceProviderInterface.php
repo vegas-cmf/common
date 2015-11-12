@@ -8,16 +8,22 @@
  */
 
 namespace Vegas\Di\Injector;
+use Phalcon\DI\InjectionAwareInterface;
 
 /**
- * Interface InjectableInterface
+ * Interface SharedServiceProviderInterface
  * @package Vegas\Di\Injector
  */
-interface InjectableInterface
+interface SharedServiceProviderInterface
 {
+    /**
+     * @return string
+     */
+    public function getName();
+
     /**
      * @param \Phalcon\DiInterface $di
      * @return mixed
      */
-    public function inject(\Phalcon\DiInterface $di);
+    public function getProvider(\Phalcon\DiInterface $di);
 }

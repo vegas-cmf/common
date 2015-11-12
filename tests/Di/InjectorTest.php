@@ -17,20 +17,30 @@ class InjectorTest extends \PHPUnit_Framework_TestCase
     {
         $di = new \Phalcon\Di\FactoryDefault();
 
-        $fooClassStr = 'class Foo implements \Vegas\Di\Injector\InjectableInterface {
-            public function inject(\Phalcon\DiInterface $di) {
-                $o = new \stdClass;
-                $o->foo = "bar";
-                $di->set("foo", $o);
+        $fooClassStr = 'class Foo implements \Vegas\Di\Injector\SharedServiceProviderInterface {
+            public function getName() {
+                return "foo";
+            }
+            public function getProvider(\Phalcon\DiInterface $di) {
+                return function() {
+                    $o = new \stdClass;
+                    $o->foo = "bar";
+                    return $o;
+                };
             }
         }';
         eval($fooClassStr);
 
-        $barClassStr = 'class Bar implements \Vegas\Di\Injector\InjectableInterface {
-            public function inject(\Phalcon\DiInterface $di) {
-                $o = new \stdClass;
-                $o->bar = "foo";
-                $di->set("bar", $o);
+        $barClassStr = 'class Bar implements \Vegas\Di\Injector\SharedServiceProviderInterface {
+            public function getName() {
+                return "bar";
+            }
+            public function getProvider(\Phalcon\DiInterface $di) {
+                return function() {
+                    $o = new \stdClass;
+                    $o->bar = "foo";
+                    return $o;
+                };
             }
         }';
         eval($barClassStr);
