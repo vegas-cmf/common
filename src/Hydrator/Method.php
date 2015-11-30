@@ -48,7 +48,7 @@ class Method extends HydratorAbstract
 
         foreach ($reflection->getMethods() as $method) {
             if (strpos($method->getName(), self::METHOD_GETTER) === 0 && !in_array($method->getName(), $staticMethods)) {
-                $name = lcfirst(str_replace(self::METHOD_GETTER, '', $method->getName()));
+                $name = lcfirst(preg_replace('/' . self::METHOD_GETTER . '/', '', $method->getName(), 1));
                 $name = $this->namingStrategy ? $this->namingStrategy->convert($name) : $name;
 
                 $values[$name] = $method->invoke($object);
