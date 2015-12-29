@@ -15,6 +15,28 @@ namespace Vegas\Test\Http;
 class Request extends \Phalcon\Http\Request
 {
     /**
+     * @return $this
+     */
+    public function newRequest()
+    {
+        $this->resetServerCustomHeaders();
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function resetServerCustomHeaders()
+    {
+        foreach ($_SERVER as $key => $value) {
+            if (strripos($key, 'HTTP_X') == 0) {
+                unset($_SERVER[$key]);
+            }
+        }
+        return $this;
+    }
+
+    /**
      * Sets request raw body
      *
      * @param $rawBody
