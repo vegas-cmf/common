@@ -62,4 +62,22 @@ class DateTimeTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals(json_encode($now->format(\DateTime::ISO8601)), json_encode($dateTime));
     }
+
+    public function testShouldValidateDateFromISOFormat()
+    {
+        $date = new \DateTime('now');
+
+        /** @var \DateTime $dateTime */
+        $isoDate = $date->format(\DateTime::ISO8601);
+        $dateTime = DateTime::createFromISO8601($isoDate);
+
+        $this->assertEquals($isoDate, $dateTime->format(\DateTime::ISO8601));
+
+        $isoDate = '2016-01-08T11:01:59.000000+0000';
+        $dateTime = DateTime::createFromISO8601($isoDate);
+
+        $this->assertEquals($isoDate, $dateTime->format('Y-m-d\TH:i:s.uO'));
+
+    }
+
 }

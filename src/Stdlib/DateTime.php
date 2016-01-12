@@ -120,9 +120,7 @@ class DateTime extends \DateTime implements \JsonSerializable
         if (isset($time[19]) && $time[19] === '.') {
             $format = 'Y-m-d\TH:i:s.uO';
         }
-        if ($timezone !== null) {
-            return self::createFromFormat($format, $time, $timezone);
-        }
+
         return self::createFromFormat($format, $time);
     }
 }

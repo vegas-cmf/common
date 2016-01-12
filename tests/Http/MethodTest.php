@@ -18,6 +18,8 @@ class MethodTest extends \PHPUnit_Framework_TestCase
         $methods = Method::values();
         $this->assertInternalType('array', $methods);
         $this->assertSameSize(array('GET','POST','DELETE','OPTIONS','HEAD','PUT','PATCH'), $methods);
+
+        $this->assertSameSize(Method::keys(), array_keys($methods));
     }
 
 } 

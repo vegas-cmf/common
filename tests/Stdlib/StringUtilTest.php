@@ -19,6 +19,12 @@ class StringUtilTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('Lorem ipsum dolor sit...', StringUtil::truncate($text, 21, '...'));
     }
 
+    public function testShouldTruncateTextWithoutGap()
+    {
+        $text = 'Loremipsumdolorsitamet';
+        $this->assertEquals('Loremipsumdolorsi...', StringUtil::truncate($text, 17, '...'));
+    }
+
     public function testShouldGenerateRandomString()
     {
         $this->assertRegExp('/[A-Za-z0-9]{10}/i', StringUtil::random(10));

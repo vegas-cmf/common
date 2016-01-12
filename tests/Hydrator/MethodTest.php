@@ -25,6 +25,7 @@ class MethodTest extends \PHPUnit_Framework_TestCase
             ])
             ->getMock();
 
+
         $mockClass->expects($this->any())
             ->method('setName')
             ->willReturnCallback(function($name) use (&$classProps) {

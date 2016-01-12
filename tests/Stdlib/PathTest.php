@@ -19,4 +19,16 @@ class PathTest extends \PHPUnit_Framework_TestCase
             Path::join('/tmp/test', 'value', 'foo.bar')
         );
     }
+
+    public function testChecksNormalizingReturn()
+    {
+        $this->assertEquals('.', Path::normalize(''));
+
+        $this->assertEquals('tmp/test', Path::normalize('./tmp/test'));
+
+        $this->assertEquals('/tmp/test', Path::normalize('/tmp/../tmp/test'));
+
+        $this->assertEquals('test/', Path::normalize('./test/'));
+    }
 }
+

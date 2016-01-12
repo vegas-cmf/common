@@ -50,9 +50,7 @@ class Path
             }
         }
         $path = implode("/", $pieces);
-        if (!$path && !$isAbsolute) {
-            $path = ".";
-        }
+
         if ($path && $trailingSlash == "/") {
             $path .= "/";
         }

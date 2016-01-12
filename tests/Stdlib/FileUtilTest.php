@@ -53,6 +53,15 @@ class FileUtilTest extends \PHPUnit_Framework_TestCase
         unlink($path);
     }
 
+    public function testShouldWriteObjectToFile()
+    {
+        $content = new \stdClass();
+        $path = TESTS_ROOT_DIR . DIRECTORY_SEPARATOR . 'fixtures' . DIRECTORY_SEPARATOR . 'test.tmp';
+        $this->assertGreaterThan(0, FileUtil::writeObject($path, $content, true));
+
+        unlink($path);
+    }
+
     public function testShouldFormatFileSizeToReadable()
     {
         $sizes = [
@@ -61,7 +70,8 @@ class FileUtilTest extends \PHPUnit_Framework_TestCase
             10*1000000 => 'MiB',
             10*1000000000 => 'GiB',
             10*1000000000000 => 'TiB',
-            10*1000000000000000 => 'PiB'
+            10*1000000000000000 => 'PiB',
+            (pow(1024, 6)+1) => 'PiB'
         ];
         foreach ($sizes as $size => $str) {
             $this->assertContains($str, FileUtil::formatSize($size));
