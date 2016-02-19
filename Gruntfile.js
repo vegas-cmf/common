@@ -35,6 +35,4 @@ module.exports = function (grunt) {
     // Default tasks.
     grunt.registerTask('default', ['vegas-assets-prepare', 'bower:install']);
 
-
-
 };

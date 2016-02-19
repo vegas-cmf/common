@@ -1,6 +1,8 @@
 {
   "name": "vegas-cmf-assets",
   "version": "0.1.0",
+  "description": "Assets package file",
+  "repository": "",
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-nodeunit": "~0.4.1",
