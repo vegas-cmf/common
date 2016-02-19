@@ -1,5 +1,5 @@
 {
-  "name": "Vegas CMF 2.0 Assets Package",
+  "name": "vegas-cmf-assets",
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "~0.4.5",
