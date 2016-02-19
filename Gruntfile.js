@@ -9,7 +9,7 @@ module.exports = function (grunt) {
         "vegas-assets-prepare": {
             default: {
                 files: {
-                    "public/assets/bower_base.json": "vendor/common/bower.json",
+                    "public/assets/bower_base.json": "vendor/vegas-cmf/common/bower.json",
                     "bower.json": ["public/assets/bower_base.json", "vendor/vegas-cmf/*/vegas.json"]
                 }
             }
