@@ -134,3 +134,77 @@ Set of components that implements general purpose utility class for different sc
 - File
 - String
 - Path
+
+### Vegas Assets Management
+
+To provide easiness of maintaining assets we prepared grunt tasks which allow you to download all dependencies from vendor directory. We have specified unique name - `vegas.json` - to store project's dependencies (and their overrides) in external libraries.
+
+#### Example vegas.json
+
+```json 
+{
+    "dependencies": {
+        "bootstrap": "3.1.0"
+    },
+    "exportsOverride": {
+        "bootstrap": {
+            "js": [
+                "dist/js/*.js",
+                "dist/js/*.map"
+            ],
+            "css": [
+                "dist/css/*.css",
+                "dist/css/*.map"
+            ],
+            "fonts": "dist/fonts/*.*"
+        }
+    }
+
+}
+```
+
+### Basic setup
+
+Add the following script commands to your composer.json file
+
+```shell
+"scripts": {
+    "post-install-cmd": [
+        "cp vendor/vegas-cmf/common/Gruntfile.js .",
+        "cp vendor/vegas-cmf/common/package.json ."
+    ],
+    "post-update-cmd": [
+        "cp vendor/vegas-cmf/common/Gruntfile.js .",
+        "cp vendor/vegas-cmf/common/package.json ."
+    ]
+}
+```
+
+Run composer update or install command 
+
+```shell
+php composer.phar update
+```
+
+Install NPM packages
+
+```shell
+npm install
+```
+> Note: Use sudo in case of permission problems
+
+
+Merge all assets to bower file and run bower install command
+
+```shell
+grunt
+```
+
+You can also run bower install or bower update task without merging assets from vendor
+```shell
+grunt bower:update
+
+//or
+
+grunt bower:install
+```
