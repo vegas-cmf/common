@@ -241,6 +241,8 @@ or:
 gulp
 ```
 
+#### Custom options
+
 You can also run bower install or bower update task without merging assets from vendor. For grunt:
 
 ```shell
