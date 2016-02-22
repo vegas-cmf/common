@@ -1,0 +1,12 @@
+{
+  "name": "vegas-cmf-assets",
+  "version": "0.1.0",
+  "description": "Assets package file",
+  "repository": "",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
+    "gulp-bower": "0.0.13",
+    "gulp-merge-json": "^0.3.0"
+  }
+}
