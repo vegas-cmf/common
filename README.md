@@ -2,7 +2,7 @@ Vegas CMF Common
 ================
 
 [![Build Status](https://travis-ci.org/vegas-cmf/common.png?branch=master)](https://travis-ci.org/vegas-cmf/common)
-[![Coverage Status](https://coveralls.io/repos/vegas-cmf/common/badge.png?branch=master)](https://coveralls.io/r/vegas-cmf/common?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/vegas-cmf/common/badge.svg?branch=master)](https://coveralls.io/github/vegas-cmf/common?branch=master)
 [![Latest Stable Version](https://img.shields.io/packagist/v/vegas-cmf/common.svg)](https://packagist.org/packages/vegas-cmf/common)
 [![Total Downloads](https://img.shields.io/packagist/dt/vegas-cmf/common.svg)](https://packagist.org/packages/vegas-cmf/common)
 
